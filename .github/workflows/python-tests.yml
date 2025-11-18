@@ -32,7 +32,14 @@ jobs:
       - name: Install ChromeDriver
         run: |
           sudo apt-get install -y chromium-chromedriver
-          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+      - name: Install ChromeDriver safely
+        run: |
+          if [ ! -f /usr/bin/chromedriver ]; then
+              sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+          else
+              echo "Chromedriver already exists, skipping symlink."
+          fi
+
 
 
       - name: Run Pytest with Coverage
