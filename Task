@@ -1,1 +1,0 @@
-Make a jenkins and git hub workflow pipe line when ever push the pipeline trigger build start the test cases executed and the report zipped in artifacts
